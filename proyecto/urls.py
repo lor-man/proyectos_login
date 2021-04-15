@@ -23,5 +23,6 @@ from users import views as users
 urlpatterns = [
     path('', general.homepage, name = "homepage"),
     path('admin/', admin.site.urls, name = "administration"),
-    path('login', users.logon, name = "logon"),
+    path('login/', users.logon, name = "logon"),
+    path('logout/',users.logout_view,name="logout"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
