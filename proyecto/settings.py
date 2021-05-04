@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Creadas
     'users',
-]
+    'clinica',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

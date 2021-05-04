@@ -25,4 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name = "administration"),
     path('login/', users.logon, name = "logon"),
     path('logout/',users.logout_view,name="logout"),
+    path('busqueda_productos/',users.busqueda_producto,name="busqueda"),
+    path('buscar/',users.buscar,name="busca"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.http import HttpResponse
 # Create your views here.
 def logon(request):
     if(request.method == "POST"):
@@ -17,3 +18,11 @@ def logon(request):
 def logout_view(request):
     logout(request)
     return redirect("logon")
+
+def busqueda_producto(request):
+    return render(request,"formulario.html")
+
+def buscar(request):
+    mensaje="Articulo buscado: %r"%request.GET["prd"]
+    return HttpResponse(mensaje)
+
