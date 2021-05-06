@@ -23,6 +23,6 @@ def busqueda_producto(request):
     return render(request,"formulario.html")
 
 def buscar(request):
-    mensaje="Articulo buscado: %r"%request.GET["prd"]
+    mensaje="Articulo buscado: %r"%request.GET["prd1"]
     return HttpResponse(mensaje)
 

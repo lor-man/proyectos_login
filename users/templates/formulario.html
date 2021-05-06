@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
-<body>
-       
-        <form action="/buscar/" method="GET">
-            <input type="text" name = "prd">
-            <input type="submit" value="buscar">
-        </form>
+  <body>
+  <FORM METHOD="GET" ACTION="/buscar/">
+    <TABLE BORDER="1">
+      <tr>
+        <th colspan="2">Nombre:</th>
+        <th colspan="2"><input type="text" id="nombre" name="nombre" required></th>
+      </tr>
+      <tr>
+        <th colspan="2">Clase:</th>
+        <th colspan="2"><input type="number" id="clssVuelo" name="clssVuelo" min="1" max="3" value = " " required></th>
+      </tr>
+      <tr>
+        <td></td>
+        <th>1era clase</th>
+        <th>2da clase</th>
+        <th>3ra clase</th>
+      </tr>
+      <tr>
+        <th>Comida</th>    
+        <td><input type="number" name="prd0" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd1" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd2" min="0" max="30" value="0" step="1" required></td>
+      </tr>
+      <TR>
+        <th>Bebida</th>
+        <td><input type="number" name="prd3" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd4" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd5" min="0" max="30" value="0" step="1" required></td>
+      </TR>
+      <TR>
+        <th>Pelicula</th>
+        <td><input type="number" name="prd6" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd7" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="prd8" min="0" max="30" value="0" step="1" required></td>
+      </TR>
+      <tr>
+        <th colspan="4">
+          <P><INPUT TYPE="SUBMIT" VALUE="Calcular" NAME="B1"></P>
+        </th>
+      </tr>
+
+    </TABLE>
+   
+    </FORM>
+    <a href="{% url 'logout' %}">Cerrar sesion</a>
+  
   </body>
 </html>
