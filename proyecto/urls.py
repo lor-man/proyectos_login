@@ -19,12 +19,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from proyecto import views as general
 from users import views as users
+from clinica import views as clinica
 
 urlpatterns = [
     path('', general.homepage, name = "homepage"),
     path('admin/', admin.site.urls, name = "administration"),
     path('login/', users.logon, name = "logon"),
     path('logout/',users.logout_view,name="logout"),
-    path('busqueda_productos/',users.busqueda_producto,name="busqueda"),
-    path('buscar/',users.buscar,name="busca"),
+    path('busqueda_productos/',clinica.busqueda_producto,name="busqueda"),
+    path('buscar/',clinica.buscar,name="busca"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
