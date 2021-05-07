@@ -11,4 +11,4 @@ class boletoAerolinea(models.Model):
     descuento=models.FloatField()
     total=models.FloatField()
     created =models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
+    

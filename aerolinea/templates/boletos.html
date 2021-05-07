@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <body>
-  <FORM METHOD="GET" ACTION="/calculo/">
-    <TABLE BORDER="1">
+  <FORM METHOD="POST" ACTION="/calculo/">
+    {% csrf_token %}
+    <TABLE BORDER="0">
       <tr>
         <th colspan="2">Nombre:</th>
         <th colspan="2"><input type="text" id="nombre" name="nombre" required></th>
@@ -19,21 +20,21 @@
       </tr>
       <tr>
         <th>Comida</th>    
-        <td><input type="number" name="prd0" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd1" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd2" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="cm1" id="cm1" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="cm2" id="cm2" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="cm3" id="cm3" min="0" max="30" value="0" step="1" required></td>
       </tr>
       <TR>
         <th>Bebida</th>
-        <td><input type="number" name="prd3" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd4" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd5" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="beb1" id="beb1" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="beb2" id="beb2" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="beb3" id="beb3" min="0" max="30" value="0" step="1" required></td>
       </TR>
       <TR>
         <th>Pelicula</th>
-        <td><input type="number" name="prd6" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd7" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="prd8" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="pl1" id="pl1" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="pl2" id="pl2" min="0" max="30" value="0" step="1" required></td>
+        <td><input type="number" name="pl3" id="pl3" min="0" max="30" value="0" step="1" required></td>
       </TR>
       <tr>
         <th colspan="4">
