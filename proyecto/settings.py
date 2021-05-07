@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #Creadas
     'users',
     'clinica',
+    'aerolinea'
     ]
 
 MIDDLEWARE = [

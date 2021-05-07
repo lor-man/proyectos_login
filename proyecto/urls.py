@@ -20,12 +20,15 @@ from django.conf.urls.static import static
 from proyecto import views as general
 from users import views as users
 from clinica import views as clinica
+from aerolinea import views as aero
 
 urlpatterns = [
     path('', general.homepage, name = "homepage"),
     path('admin/', admin.site.urls, name = "administration"),
     path('login/', users.logon, name = "logon"),
     path('logout/',users.logout_view,name="logout"),
-    path('busqueda_productos/',clinica.busqueda_producto,name="busqueda"),
-    path('buscar/',clinica.buscar,name="busca"),
+    path('calc-boleto/',aero.boletos,name="boleto"),
+    path('calculo/',aero.calculo,name="calculo"),
+    path('nombre/',aero.get_name,name="nombre"),
+    path('your-name/',aero.name,name="disp_nombre"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
