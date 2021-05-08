@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <table border=".5">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Clase de vuelo</th>
+                <th>Subtotal</th>
+                <th>Descuento</th>
+                <th>Total</th>
+            </tr>
+
+                {%for item in boleto%}
+                <tr>
+                   
+                        <td>{{item.pk}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.vuelo}}</td>
+                        <td>{{item.subTotal}}</td>
+                        <td>{{item.descuento}}</td>
+                        <td>{{item.total}}</td>
+                   
+                </tr>
+                {% endfor %}
+            
+        </table>
+    </body>
+</html>

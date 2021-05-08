@@ -74,15 +74,13 @@ def calculo(request):
                 total=total
             )
             objMod.save()
-            
             return render(request,'calculo.html',{'numero':"{:.2f}".format(subTotal),'descuento':"{:.2f}".format(desc),'total':"{:.2f}".format(total),'nombre':request.POST['nombre'],'clase':clss})
         else:
             return render(request,'calculo.html',{'numero':"--",'descuento':"--",'total':"--",'nombre':"--",'clase':"--"})
-    except:
+    except Exception as exc:
+        print(str(exc))
         return render(request,'calculo.html',{'numero':"--",'descuento':"--",'total':"--",'nombre':"--",'clase':"--"})
         
-
-
 def get_name(request):
     form=NameForm()   
     print(form)
@@ -99,4 +97,21 @@ def name(request):
         msn="Tu nombre es: "+ str(nombre)
         return HttpResponse(msn)
     return redirect("nombre")
+
+def registro(request):
+    obj=boletoAerolinea.objects.all()
+    return render(request,'registro.html',{'boleto':obj})
+
+def reg_eliminar(request):
+    return render(request, 'reg_eliminar.html')
+
+def limpiar(request):
+    if request.method=='POST':
+        idd=request.POST["reg"]
+        obj=boletoAerolinea.objects.filter(pk=int(idd))
+        print(obj[0].nombre)
+        return render(request,'registro_eliminacion.html',{'rg':obj})
+    else:
+        return redirect('boleto')
+        
         

@@ -12,3 +12,5 @@ class boletoAerolinea(models.Model):
     total=models.FloatField()
     created =models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return  self.nombre
