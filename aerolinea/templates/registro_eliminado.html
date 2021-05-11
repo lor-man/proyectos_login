@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/eliminado.css'%}">
+</head>
+<body>
+        <h1>Registro eliminado con exito</h1>
+        <br><br>
+        <input type="button" onclick="location.href='http://localhost:8000/login/';" value="Cerrar sesion" />
+        <br><br>
+        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/registros';" value="Ver registros" />
+        <br><br>
+        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/eliminar-registro';" value="Eliminar registro" />
+        <br><br>
+        <input type="button" onclick="location.href='http://localhost:8000/';" value="Pagina principal" />
+        <br><br>
+        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Calculadora de boleto" />
+    </body>
+</html>

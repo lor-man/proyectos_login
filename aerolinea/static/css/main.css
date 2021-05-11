@@ -1,0 +1,40 @@
+h1{
+    color: black;
+    text-align: center;
+    text-decoration-line: overline underline;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 8px;
+  }
+
+  input[type=button]{
+    background-color: white;
+    color:black;
+    border:2px solid lightskyblue;
+    padding: 5px 5px;
+    transition-duration: 0.4s;
+  }
+  input[type=button]:hover{
+    background-color: gray;
+    color:black;
+    border:2px solid lightskyblue;
+    }
+#regreso{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 8px;
+}
+#regreso{
+    background-color: white;
+    color:black;
+    border:2px solid lightskyblue;
+    padding: 5px 5px;
+    transition-duration: 0.4s;
+}
+#regreso:hover{
+    background-color: gray;
+    color:black;
+    border:2px solid lightskyblue;
+}

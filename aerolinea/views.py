@@ -103,15 +103,23 @@ def registro(request):
     return render(request,'registro.html',{'boleto':obj})
 
 def reg_eliminar(request):
+    if request.method=='POST':
+        if(request.POST["reg"]):
+            print("reg")
+            idd=request.POST["reg"]
+            obj=boletoAerolinea.objects.filter(pk=int(idd))
+            return render(request,'reg_eliminar.html',{'rg':obj})
+    print("aqui")
     return render(request, 'reg_eliminar.html')
 
 def limpiar(request):
     if request.method=='POST':
-        idd=request.POST["reg"]
-        obj=boletoAerolinea.objects.filter(pk=int(idd))
-        print(obj[0].nombre)
-        return render(request,'registro_eliminacion.html',{'rg':obj})
+        idd=request.POST["id"]
+        obj=boletoAerolinea.objects.filter(pk=int(idd)).delete()
+        return render(request,'registro_eliminado.html')
     else:
         return redirect('boleto')
-        
+
+
+
         

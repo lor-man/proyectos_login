@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reg.css'%}">
+    
+  </head>
     <body>
-        <table border=".5">
+      <h1>Registros de boletos</h1>
+        <table id="reg_table" >
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -22,8 +28,14 @@
                         <td>{{item.total}}</td>
                    
                 </tr>
-                {% endfor %}
-            
+                {% endfor %}            
         </table>
+        <br><br>
+        <button id="button" onclick="goBack()" id="regreso">Regresar</button>
+        <script>
+          function goBack(){
+            window.history.back()
+          }
+        </script>
     </body>
 </html>

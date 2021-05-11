@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <body>
-  <FORM METHOD="POST" ACTION="/calc-boleto/registro-a-eliminar/">
-    {% csrf_token %}   
-    <input type="number" name="reg" id="cm1" min="0" max="1500" value="0" step="1" required>
-    <INPUT TYPE="SUBMIT" VALUE="Eliminar" NAME="B1">
-  
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/eliminar.css'%}">
+  </head>
+  <body> 
+ 
+    <h1>Registro a eliminar</h1>
+    {%if rg%}
+    <FORM METHOD="POST" ACTION="/calc-boleto/registro-a-eliminar">
+      {% csrf_token %}   
+      <input type="number" name="id" id="id"  value="{{rg.0.pk}}" readonly>
+      <INPUT TYPE="SUBMIT" VALUE="Eliminar" NAME="B1">
+      </FORM>
+    {%else%}
+    <FORM METHOD="POST" ACTION="/calc-boleto/eliminar-registro">
+      {% csrf_token %}   
+      <input type="number" name="reg" id="cm1" min="1" max="1500" value="" step="1" required>
+      <INPUT TYPE="SUBMIT" VALUE="Buscar" NAME="B1">
+      </FORM>
+    {%endif%}
+
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Clase de vuelo</th>
+            <th>Subtotal</th>
+            <th>Descuento</th>
+            <th>Total</th>
+        </tr>
+        {% if rg %}
+        <tr>
+                <td>{{rg.0.pk}}</td>
+                <td>{{rg.0.nombre}}</td>
+                <td>{{rg.0.vuelo}}</td>
+                <td>{{rg.0.subTotal}}</td>
+                <td>{{rg.0.descuento}}</td>
+                <td>{{rg.0.total}}</td>
+        </tr>
+        {% else %}
+        <tr>
+            
+            <td>NONE</td>
+            <td>NONE</td>
+            <td>NONE</td>
+            <td>NONE</td>
+            <td>NONE</td>
+            <td>NONE</td>
+          </tr>    
+         
+        {% endif %}
+    </table>
+    {%if rg%}
+    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/eliminar-registro';" value="Regresar" />
+    {%else%}
+    <br><br>
+    No se encuentra el registro o no existe
+    <br><br>
+    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Regresar" />
+    {%endif%}
+    
+    </script>
   </body>
 </html>

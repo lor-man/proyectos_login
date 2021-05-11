@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+ 
+
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/calc.css'%}">
+    <h1>Calculadora de boleto</h1>
+  </head>
   <body>
   <FORM METHOD="POST" ACTION="/calc-boleto/calculo">
     {% csrf_token %}
-    <TABLE BORDER="0">
+    <TABLE  id="tab_form">
       <tr>
-        <th colspan="2">Nombre:</th>
+        <th colspan="2" id= "nombre_lab">Nombre:</th>
         <th colspan="2"><input type="text" id="nombre" name="nombre" required></th>
       </tr>
       <tr>
@@ -20,34 +27,37 @@
       </tr>
       <tr>
         <th>Comida</th>    
-        <td><input type="number" name="cm1" id="cm1" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="cm2" id="cm2" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="cm3" id="cm3" min="0" max="30" value="0" step="1" required></td>
+        <th><input type="number" name="cm1" id="cm1" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="cm2" id="cm2" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="cm3" id="cm3" min="0" max="30" value="0" step="1" required></th>
       </tr>
       <TR>
         <th>Bebida</th>
-        <td><input type="number" name="beb1" id="beb1" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="beb2" id="beb2" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="beb3" id="beb3" min="0" max="30" value="0" step="1" required></td>
+        <th><input type="number" name="beb1" id="beb1" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="beb2" id="beb2" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="beb3" id="beb3" min="0" max="30" value="0" step="1" required></th>
       </TR>
       <TR>
         <th>Pelicula</th>
-        <td><input type="number" name="pl1" id="pl1" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="pl2" id="pl2" min="0" max="30" value="0" step="1" required></td>
-        <td><input type="number" name="pl3" id="pl3" min="0" max="30" value="0" step="1" required></td>
+        <th><input type="number" name="pl1" id="pl1" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="pl2" id="pl2" min="0" max="30" value="0" step="1" required></th>
+        <th><input type="number" name="pl3" id="pl3" min="0" max="30" value="0" step="1" required></th>
       </TR>
       <tr>
         <th colspan="4">
-          <P><INPUT TYPE="SUBMIT" VALUE="Calcular" NAME="B1"></P>
+          <P><INPUT type="submit" value="Calcular" name="b1" id="b1"></P>
         </th>
       </tr>
 
     </TABLE>
    
     </FORM>
-    <a href="{% url 'logout' %}">Cerrar sesion</a>
-    <br>
-    <a href="{% url 'registros' %}">Ver registros</a>
-  
+    <input type="button" onclick="location.href='http://localhost:8000/login/';" value="Cerrar sesion" />
+    <br><br>
+    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/registros';" value="Ver registros" />
+    <br><br>
+    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/eliminar-registro';" value="Eliminar registro" />
+    <br><br>
+    <input type="button" onclick="location.href='http://localhost:8000/';" value="Pagina principal" />
   </body>
 </html>

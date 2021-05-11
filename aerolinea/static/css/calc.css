@@ -1,0 +1,79 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#tab_form{
+  margin: auto;
+  width: 50%;
+  border: 3px dashed black;
+  padding: 10px;
+  align-items: center;
+  background:lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+  border-radius: 8px;
+
+}
+h1{
+  color: black;
+  text-align: center;
+  text-decoration-line: overline underline;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 8px;
+}
+#nombre[type=text]{
+  background-color: white;
+  border:2px solid lightblue;  
+}
+#nombre[type=text]:hover{
+  background-color:lightskyblue;
+  border:2px solid lightblue;
+}
+input[type=number]{
+  width:1cm;
+  padding: 5px 5px; 
+  border-style: ridge;
+  text-align: center;  
+   -moz-appearance:textfield; /* Firefox */
+}
+input[type=number]:focus{
+  width:1cm;
+  border-style: ridge;
+  border-color: lightblue;  
+  padding: 5px 5px; 
+  text-align: center;  
+}
+input[type=submit]{
+  background-color: white;
+  color:black;
+  border:2px solid lightskyblue;
+  padding: 5px 5px;
+  transition-duration: 0.4s;
+}
+
+input[type=submit]:hover{
+  background-color: gray;
+  color:black;
+  border:2px solid lightskyblue;
+  }
+
+input[type=button]{
+  background-color: white;
+  color:black;
+  border:2px solid lightskyblue;
+  padding: 5px 5px;
+  transition-duration: 0.4s;
+}
+input[type=button]:hover{
+  background-color: gray;
+  color:black;
+  border:2px solid lightskyblue;
+  }
+
+

@@ -1,0 +1,75 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+body{
+    padding: 5px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+h1{
+    color: black;
+    text-align: center;
+    text-decoration-line: overline underline;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=submit]{
+    background-color: white;
+    color:black;
+    border:2px solid lightskyblue;
+    padding: 5px 5px;
+    transition-duration: 0.4s;
+    border-radius: 8px;
+    
+  }
+input[type=submit]:hover{
+    background-color: gray;
+    color:black;
+    border:2px solid lightskyblue;
+}
+input[type=button]{
+    background-color: white;
+    color:black;
+    border:2px solid lightskyblue;
+    padding: 5px 5px;
+    transition-duration: 0.4s;
+    border-radius: 8px;
+  }
+input[type=button]:hover{
+    background-color: gray;
+    color:black;
+    border:2px solid lightskyblue;
+}
+
+table{
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,td{ 
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color: #f5f5f5;}
+
+input[type=number]{
+    width:1cm;
+    padding: 5px 5px; 
+    border-style: ridge;
+    border-radius: 8px;
+    text-align: center;  
+    -moz-appearance:textfield; /* Firefox */
+  }
+input[type=number]:focus{
+    width:1cm;
+    border-style: ridge;
+    border-color: lightblue;
+    border-radius: 8px;  
+    padding: 5px 5px; 
+    text-align: center;
+}
