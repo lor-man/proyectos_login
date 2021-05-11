@@ -1,0 +1,19 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    background-color: white;
+  }
+.grid-item {
+    background-color: lightgray;
+    text-align: justify;
+    padding: 5px;
+    font-size: 20px;
+}
+.item13{
+    text-align:-moz-center;
+    grid-column:1/span 2;
+}
+form {
+    width: 300px;
+    margin: 0 auto;
+}

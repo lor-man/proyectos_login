@@ -32,6 +32,5 @@ urlpatterns = [
     path('calc-boleto/registros',aero.registro,name="registros"),
     path('calc-boleto/eliminar-registro',aero.reg_eliminar,name="eliminar"),
     path('calc-boleto/registro-a-eliminar',aero.limpiar,name="limpiar"),
-    path('nombre/',aero.get_name,name="nombre"),
-    path('your-name/',aero.name,name="disp_nombre"),
+    path('clinica-registro/',clinica.registro,name="registro"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

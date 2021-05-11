@@ -81,22 +81,6 @@ def calculo(request):
         print(str(exc))
         return render(request,'calculo.html',{'numero':"--",'descuento':"--",'total':"--",'nombre':"--",'clase':"--"})
         
-def get_name(request):
-    form=NameForm()   
-    print(form)
-    return render(request,'name.html',{'form':NameForm()})
-
-def name(request):
-    if request.method== 'POST':
-        nombre=request.POST['your_name']
-        msn="Tu nombre es: "+ str(nombre)
-        print(msn)
-        return HttpResponse(msn)
-    else:
-        nombre=request.GET['your_name']
-        msn="Tu nombre es: "+ str(nombre)
-        return HttpResponse(msn)
-    return redirect("nombre")
 
 def registro(request):
     obj=boletoAerolinea.objects.all()

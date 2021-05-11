@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <script>
+            var today= new Date();
+            var dd= today.getDate();
+            var mm= today.getMonth()+1;
+            var yyyy= today.getFullYear();
+            if(dd<10){
+                dd='0'+dd
+                }
+                if(mm<10){
+                    mm='0'+mm
+                }
+            today=yyyy+'-'+mm+'-'+dd;
+            document.getElementById("fecha").setAttribute("min",today);
+        </script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/reg.css'%}">
+    </head>
+        <body>
+            <form method="POST">
+            <div class="grid-container">
+                
+                <div class = "grid-item item1"><label for="name">Nombre: </label></div>
+                <div class = "grid-item item2"><input type="text" id="name" name="nombre" required></div>
+                <div class = "grid-item item3"><label for="edad">Edad: </label></div>
+                <div class = "grid-item item4"><input type="number" id="edad" name="edad" step="0.01" required></div>
+                <div class = "grid-item item5"><label for="peso">Peso: </label></div>
+                <div class = "grid-item item6"><input type="number" id="peso" name="peso" step="0.01" required></div>
+                <div class = "grid-item item7"><label for="altura">Altura: </label></div>
+                <div class = "grid-item item8"><input type= "number" id="altura" name="altura" step="0.01" required></div>
+                <div class = "grid-item item9"><label for="fecha">Fecha: </label></div>
+                <div class = "grid-item item10"><input type="date" min="" id="fecha" name= "fecha" required></div>
+
+                <div class = "grid-item item11"><label for="hora">Hora: </label></div>
+                <div class = "grid-item item12"><input type="time" min="08:00" max="17:00"  id="hora" name= "hora" required></div>
+                <div class = "grid-item item13"><input type="submit" id="registrar" name= "registrar" value="Registrar"></div>
+                
+            </div>
+        </form>
+        </body>
+    
+</html>
