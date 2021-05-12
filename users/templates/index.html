@@ -5,12 +5,26 @@
         <link rel="stylesheet" href="{% static 'css/main.css'%}">
     </head>
     <body>
-        <h1>Pagina principal</h1>
-        <br><br>
-    
-        <input type="button" onclick="location.href='http://localhost:8000/login/';" value="Cerrar sesion" />
-       
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Calculadora de boleto" />
+        <div class="grid-container c0">
+        <div class="grid-item item0">
+            <h1>Pagina principal</h1>
+        </div>
+        <div class = "grid-item item1">
+            <nav id=  "menu">
+                <ul>
+                    <li><a>Menu</a>
+                    <ul>
+                        <li><a href="http://localhost:8000/">Pagina principal</a></li>
+                        <li><a href="http://localhost:8000/calc-boleto/">Aerolinea</a></li>
+                        <li><a href="http://localhost:8000/clinica-registro/">Clinica</a></li>
+                        <li><a href=http://localhost:8000/login/>Logout</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </nav>
+        </div>
+        
+
+    </div>
     </body>
 </html>

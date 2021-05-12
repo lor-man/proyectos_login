@@ -2,12 +2,30 @@
 <html>
   <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/reg.css'%}">
+    <link rel="stylesheet" href="{% static 'css/regg.css'%}">
     
   </head>
     <body>
-      <h1>Registros de boletos</h1>
-        <table id="reg_table" >
+      <div class="grid-container">
+        <div class="grid-item i0">
+          <h1>Registros de boletos</h1>
+        </div>
+        <div class="grid-item i1">
+          <nav id=  "menu">
+            <ul>
+                <li><a>Menu</a>
+                <ul>
+                    <li><a href="http://localhost:8000/">Pagina principal</a></li>
+                    <li><a href="http://localhost:8000/calc-boleto/">Aerolinea</a></li>
+                    <li><a href="http://localhost:8000/clinica-registro/">Clinica</a></li>
+                    <li><a href=http://localhost:8000/login/>Logout</a></li>
+                </ul>
+            </li>
+            </ul>
+        </nav>
+        </div>
+        <div class="grid-item i2">
+          <table id="reg_table" >
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -30,12 +48,7 @@
                 </tr>
                 {% endfor %}            
         </table>
-        <br><br>
-        <button id="button" onclick="goBack()" id="regreso">Regresar</button>
-        <script>
-          function goBack(){
-            window.history.back()
-          }
-        </script>
+        </div>
+      </div>
     </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/citas.css'%}">
+    </head>
+        <body>
+            <H1>Citas</H1>
+            <div class = "grid-container c0">
+            <div class = "grid-item i0">
+                <nav id=  "menu">
+                    <ul>
+                        <li><a>Menu</a>
+                        <ul>
+                            <li><a href="http://localhost:8000/">Pagina principal</a></li>
+                            <li><a href="http://localhost:8000/clinica-registro/">Registro</a></li>
+                            <li><a href="http://localhost:8000/clinica/registros">Ver citas</a></li>
+                            <li><a href="http://localhost:8000/clinica/eliminar-registro">Eliminar citas</a></li>
+                            <li><a href=http://localhost:8000/login/>Logout</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class = "grid-item i1">
+                <!--Formulario de consulta-->
+                <form method="POST" action="/clinica/registros"> 
+                    {% csrf_token %}
+                    <div class ="grid-container c1">
+                        <div class = "grid-item item0"><label for="fecha">Fecha de consulta: </label></div>
+                        <div class = "grid-item item1"><input type="date"  id="fecha" name= "fecha" required></div>
+                        <div class = "grid-item item2"><input type="submit" id="consultar" name= "consultar" value="Consultar"></div>
+                    </div>
+                </form>                
+            </div>
+            <div class="grid-item i2">
+                <!--Tabla de consulta-->
+                {% if citas_consultadas %}
+                <h2>Citas del día</h2>
+                <table id="reg_table" >
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                    </tr>
+        
+                        {%for item in citas_consultadas%}
+                        <tr>
+                           
+                                <td>{{item.pk}}</td>
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.fecha}}</td>
+                                <td>{{item.hora}}</td>
+                        </tr>
+                        {% endfor %}            
+                </table>
+                {% endif %}
+            </div>
+        </div>
+        </body>
+    
+</html>

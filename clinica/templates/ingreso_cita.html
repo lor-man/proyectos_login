@@ -19,26 +19,45 @@
         <link rel="stylesheet" href="{% static 'css/reg.css'%}">
     </head>
         <body>
-            <form method="POST">
-            <div class="grid-container">
-                
-                <div class = "grid-item item1"><label for="name">Nombre: </label></div>
-                <div class = "grid-item item2"><input type="text" id="name" name="nombre" required></div>
-                <div class = "grid-item item3"><label for="edad">Edad: </label></div>
-                <div class = "grid-item item4"><input type="number" id="edad" name="edad" step="0.01" required></div>
-                <div class = "grid-item item5"><label for="peso">Peso: </label></div>
-                <div class = "grid-item item6"><input type="number" id="peso" name="peso" step="0.01" required></div>
-                <div class = "grid-item item7"><label for="altura">Altura: </label></div>
-                <div class = "grid-item item8"><input type= "number" id="altura" name="altura" step="0.01" required></div>
-                <div class = "grid-item item9"><label for="fecha">Fecha: </label></div>
-                <div class = "grid-item item10"><input type="date" min="" id="fecha" name= "fecha" required></div>
-
-                <div class = "grid-item item11"><label for="hora">Hora: </label></div>
-                <div class = "grid-item item12"><input type="time" min="08:00" max="17:00"  id="hora" name= "hora" required></div>
-                <div class = "grid-item item13"><input type="submit" id="registrar" name= "registrar" value="Registrar"></div>
-                
+            <H1>Clinica</H1>
+            <div class = "grid-container c0">
+            <div class = "grid-item i0">
+                <nav id=  "menu">
+                    <ul>
+                        <li><a>Menu</a>
+                        <ul>
+                            <li><a href="http://localhost:8000/">Pagina principal</a></li>
+                            <li><a href="http://localhost:8000/clinica-registro/">Registro</a></li>
+                            <li><a href="http://localhost:8000/clinica/registros">Ver citas</a></li>
+                            <li><a href="http://localhost:8000/clinica/eliminar-registro">Eliminar citas</a></li>
+                            <li><a href=http://localhost:8000/login/>Logout</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </nav>
             </div>
-        </form>
+            <div class = "grid-item i1">
+                <form method="POST" action="/clinica-registro/"">
+                {% csrf_token %} 
+                <div class="grid-container c1">
+                    <div class = "grid-item item1"><label for="name">Nombre: </label></div>
+                    <div class = "grid-item item2"><input type="text" id="name" name="nombre" required></div>
+                    <div class = "grid-item item3"><label for="edad">Edad: </label></div>
+                    <div class = "grid-item item4"><input type="number" id="edad" name="edad" required></div>
+                    <div class = "grid-item item5"><label for="peso">Peso: </label></div>
+                    <div class = "grid-item item6"><input type="number" id="peso" name="peso" step="0.01" required></div>
+                    <div class = "grid-item item7"><label for="altura">Altura: </label></div>
+                    <div class = "grid-item item8"><input type= "number" id="altura" name="altura" step="0.01" required></div>
+                    <div class = "grid-item item9"><label for="fecha">Fecha: </label></div>
+                    <div class = "grid-item item10"><input type="date" min="" id="fecha" name= "fecha" required></div>
+
+                    <div class = "grid-item item11"><label for="hora">Hora: </label></div>
+                    <div class = "grid-item item12"><input type="time" min="08:00" max="17:00"  id="hora" name= "hora" required></div>
+                    <div class = "grid-item item13"><input type="submit" id="registrar" name= "registrar" value="Registrar"></div>
+                </div>
+                </form>
+            </div>
+        </div>
         </body>
     
 </html>
