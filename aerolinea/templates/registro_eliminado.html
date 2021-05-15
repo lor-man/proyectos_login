@@ -2,19 +2,27 @@
 <html>
 <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/eliminado.css'%}">
+    <link rel="stylesheet" href="{% static 'css/eliminar.css'%}">
 </head>
 <body>
-        <h1>Registro eliminado con exito</h1>
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/login/';" value="Cerrar sesion" />
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/registros';" value="Ver registros" />
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/eliminar-registro';" value="Eliminar registro" />
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/';" value="Pagina principal" />
-        <br><br>
-        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Calculadora de boleto" />
+    <div class="grid g0 ">
+        <div class="item i0"><h1>Aerolinea</h1></div>
+        <div class="item i1">
+            <nav id=  "menu">
+                <ul>
+                    <li><a>Menu</a>
+                    <ul>
+                        <li><a href="{%url 'boleto'%}">Calculadora</a></li>
+                        <li><a href="{%url 'registros'%}">Registros</a></li>
+                        <li><a href="{%url 'eliminar'%}">Eliminar registro</a></li>
+                        <li><a href="{%url 'logout'%}">Logout</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="item i2"><p>Registro eliminado con exito</p></div>
+    </div>
+               
     </body>
 </html>

@@ -5,62 +5,84 @@
     <link rel="stylesheet" href="{% static 'css/eliminar.css'%}">
   </head>
   <body> 
- 
-    <h1>Registro a eliminar</h1>
-    {%if rg%}
-    <FORM METHOD="POST" ACTION="/calc-boleto/registro-a-eliminar">
-      {% csrf_token %}   
-      <input type="number" name="id" id="id"  value="{{rg.0.pk}}" readonly>
-      <INPUT TYPE="SUBMIT" VALUE="Eliminar" NAME="B1">
-      </FORM>
-    {%else%}
-    <FORM METHOD="POST" ACTION="/calc-boleto/eliminar-registro">
-      {% csrf_token %}   
-      <input type="number" name="reg" id="cm1" min="1" max="1500" value="" step="1" required>
-      <INPUT TYPE="SUBMIT" VALUE="Buscar" NAME="B1">
-      </FORM>
-    {%endif%}
-
-    <table >
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Clase de vuelo</th>
-            <th>Subtotal</th>
-            <th>Descuento</th>
-            <th>Total</th>
-        </tr>
-        {% if rg %}
-        <tr>
-                <td>{{rg.0.pk}}</td>
-                <td>{{rg.0.nombre}}</td>
-                <td>{{rg.0.vuelo}}</td>
-                <td>{{rg.0.subTotal}}</td>
-                <td>{{rg.0.descuento}}</td>
-                <td>{{rg.0.total}}</td>
-        </tr>
-        {% else %}
-        <tr>
-            
-            <td>NONE</td>
-            <td>NONE</td>
-            <td>NONE</td>
-            <td>NONE</td>
-            <td>NONE</td>
-            <td>NONE</td>
-          </tr>    
-         
-        {% endif %}
-    </table>
-    {%if rg%}
-    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/eliminar-registro';" value="Regresar" />
-    {%else%}
-    <br><br>
-    No se encuentra el registro o no existe
-    <br><br>
-    <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Regresar" />
-    {%endif%}
+    <div class="grid g0">
+      <div class="item i0"><h1>Registro a eliminar</h1></div>
+      <div class="item i1">
+        <nav id=  "menu">
+          <ul>
+              <li><a>Menu</a>
+              <ul>
+                <li><a href="{%url 'boleto'%}">Calculadora</a></li>
+                <li><a href="{%url 'registros'%}">Registros</a></li>
+                <li><a href="{%url 'eliminar'%}">Eliminar registro</a></li>
+                <li><a href="{%url 'logout'%}">Logout</a></li>
+              </ul>
+          </li>
+          </ul>
+      </nav>
+      </div>
+      <div class="item i2">
+          <div class="grid g1">
+            <div class = "item i3">
+              {%if rg%}
+              <FORM METHOD="POST" ACTION="/calc-boleto/registro-a-eliminar">
+                {% csrf_token %}   
+                <input type="number" name="id" id="id"  value="{{rg.0.pk}}" readonly>
+                <INPUT TYPE="SUBMIT" VALUE="Eliminar" NAME="B1">
+                </FORM>
+              {%else%}
+              <FORM METHOD="POST" ACTION="/calc-boleto/eliminar-registro">
+                {% csrf_token %}   
+                <input type="number" name="reg" id="cm1" min="1" max="1500" value="" step="1" required>
+                <INPUT TYPE="SUBMIT" VALUE="Buscar" NAME="B1">
+                </FORM>
+              {%endif%}
+            </div>
+            <div class="item i4">
+                <table >
+                  <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Clase de vuelo</th>
+                      <th>Subtotal</th>
+                      <th>Descuento</th>
+                      <th>Total</th>
+                  </tr>
+                  {% if rg %}
+                  <tr>
+                          <td>{{rg.0.pk}}</td>
+                          <td>{{rg.0.nombre}}</td>
+                          <td>{{rg.0.vuelo}}</td>
+                          <td>{{rg.0.subTotal}}</td>
+                          <td>{{rg.0.descuento}}</td>
+                          <td>{{rg.0.total}}</td>
+                  </tr>
+                  {% else %}
+                  <tr>
+                      
+                      <td>NONE</td>
+                      <td>NONE</td>
+                      <td>NONE</td>
+                      <td>NONE</td>
+                      <td>NONE</td>
+                      <td>NONE</td>
+                    </tr>    
+                  
+                  {% endif %}
+              </table>
+            </div>
+            <div class="item i5">
+              {%if rg%}
     
-    </script>
+              {%else%}
+              <br><br>
+              No se encuentra el registro o no existe
+              <br><br>
+              
+              {%endif%}
+            </div>
+          </div>
+      </div>
+   </div>
   </body>
 </html>

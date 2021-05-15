@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/calc.css'%}">
+      </head>
     <body>
-        <div><label>Nombre: </label>{{nombre}} </div>
-        <div><label>Clase de vuelo: </label>{{clase}} </div>        
-        <div>
-            Subtotal= {{numero}}
-            <br>
-        </div>
-        <div>
-            Descuento={{descuento}}    
-            <br>
-        </div>
-        <div>
-            Total = {{total}}
-        </div>
-        <input type="button" onclick="location.href='http://localhost:8000/calc-boleto/';" value="Regresar" />
-    </body>
+        <div class="grid-container">
+            <div class="grid-item item0"><h1>Calculadora de boleto</h1></div>
+            <div class="grid-item item1">
+                <nav id=  "menu">
+                    <ul>
+                        <li><a>Menu</a>
+                        <ul>
+                            <li><a href="{%url 'boleto'%}">Calculadora</a></li>
+                            <li><a href="{%url 'registros'%}">Registros</a></li>
+                            <li><a href="{%url 'eliminar'%}">Eliminar registro</a></li>
+                            <li><a href="{%url 'logout'%}">Logout</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="grid-item item2">
+                <div class="grid-container">
+                    <div class="grid-item item3"><label>Nombre: {{nombre}}</label></div>   
+                    <div class="grid-item item4"> <label>Clase de vuelo : {{clase}}</label> </div></div>
+                    <div class="grid-item item5"><label>Subtotal= {{numero}}</label></div>
+                    <div class="grid-item item5"><label>Descuento={{descuento}} </label></div>
+                    <div class="grid-item item5"><label>Total = {{total}}</label></div>
+                </div>
+            </div>
+       </body>
 </html>

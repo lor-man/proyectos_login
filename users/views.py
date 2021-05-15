@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from django.http import HttpResponse
 from users.models import UserProfile
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -20,6 +20,7 @@ def logon(request):
         userSession = authenticate(request, username=username,password=password)
         if(userSession):
             obj=UserProfile.objects.filter(user__username=username,rol=rol)
+            login(request,userSession)
             if(obj):
                 if(rol=="A"):
                     return redirect("gestion")
@@ -30,15 +31,16 @@ def logon(request):
                 return render(request,'login.html',{'error':"Invalid rol"})
         else:
             return render(request,'login.html',{'error':"Invalid password or username"})
-    #print(request.user.is_authenticated)
     return render(request,"login.html")
 
+@login_required
 def logout_view(request):
     print(request.user.is_authenticated)
     logout(request)
     print(request.user.is_authenticated)
     return redirect("logon")
 
+@login_required
 def gestionAgregar(request):
     if request.method=='POST':
         nombre=request.POST['name']
@@ -55,6 +57,7 @@ def gestionAgregar(request):
             rol='U'
         try:
             name=User.objects.get(username=nombre)
+            print(name)
             if(name):
                 return render(request,'gestion.html',{'info':'El nombre de usuario ya existe'})
         except:
@@ -71,10 +74,27 @@ def gestionAgregar(request):
         return render(request,'gestion.html',{'info':'Usuario guardado'}) 
     return render(request,'gestion.html')
 
+@login_required
 def gestionEliminar(request):
+    if request.method=='POST':
+        userProfile=UserProfile.objects.filter(user__id=request.POST['id'])
+        return render(request, 'eliminarUsuario.html',{'obj':userProfile,'idElim':request.POST['id']})        
     return render(request,'eliminarUsuario.html')
+
+@login_required
 def gestionVer(request):
-    return render(request,'verUsuario.html')
+    try:
+        userProfile=UserProfile.objects.all()
+        return render(request, 'verUsuario.html',{'obj':userProfile})
+    except:
+        return render(request,'verUsuario.html')
 
-
+@login_required
+def gestionEliminado(request):
+    try: 
+        if request.method=='POST':
+            userProfile=User.objects.filter(id=request.POST['id']).delete()
+            return render(request,'gestion_eliminado.html')
+    except:
+        return redirect('gesEliminar')
 

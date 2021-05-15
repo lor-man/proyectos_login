@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{%static 'css/gestion.css'%}">
+
+    </head>
+
+        <body>
+            <div class="grid g0">
+                <div class="item i0">
+                    <h1>Gestion usuarios</h1>
+                </div>
+                <div class="item i1">
+                    <nav id=  "menu">
+                        <ul>
+                            <li><a>Menu</a>
+                            <ul>
+                                <li><a href="{%url 'gestion' %}">Pagina principal</a></li>
+                                <li><a href="{%url 'gesVer'%}">Ver usuarios</a></li>
+                                <li><a href="{%url  'gesEliminar'%}">Eliminar usuarios</a></li>
+                                <li><a href="{%url 'logout'%}">Logout</a></li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </nav>
+                </div>
+                    <div class="item i2">                    
+                        {% if obj %}
+                            <table id="reg_table" >
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre de usuario</th>
+                                    <th>Rol</th>
+                                    <th>Teléfono</th>
+                                </tr>            
+                                    {%for item in obj%}
+                                    <tr>                                    
+                                        <td>{{item.user.id}}</td>
+                                        <td>{{item.user.username}}</td>
+                                        {%if item.rol == 'U'%}
+                                            <td>Usuario</td>
+                                        {%else%}
+                                            <td>Administrador</td>
+                                        {%endif%}
+                                        <td>{{item.phone}}</td>                               
+                                    </tr>
+                                    {% endfor %}            
+                            </table>
+                        {%endif%}
+                    </div>  
+                </div>
+            </body>    
+</html>

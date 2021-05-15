@@ -4,18 +4,11 @@ from aerolinea.forms import NameForm
 from aerolinea.models import boletoAerolinea
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 @login_required
 def boletos(request):
-    try:
-        #if request.user.is_authenticated:
-        print(request.user.is_authenticated)
-        print("in")
-        return render(request,"boletos.html")
-        #else:
-        #    print(request.user.is_authenticated)
-        #    return redirect('logon')
-    except Exception as exc:
-        print(str(exc))
+    return render(request,"boletos.html")  
+ 
 @login_required
 def calculo(request):
     try:
