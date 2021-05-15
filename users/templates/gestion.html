@@ -47,6 +47,12 @@
                             <div class="item i010"><input type ="submit"name="enviar" id= "enviar" value="Registrar"></div>
                         </div>
                     </form>
+                    {% if info %}
+                    <div>
+                        <br><br>
+                        <p>{{info}}</p>
+                    </div>
+                    {%endif%}
                 </div>
 
 

@@ -4,6 +4,8 @@ from django.contrib.auth import logout
 from django.http import HttpResponse
 from users.models import UserProfile
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+
 
 # Create your views here.
 def logon(request):
@@ -19,10 +21,6 @@ def logon(request):
         if(userSession):
             obj=UserProfile.objects.filter(user__username=username,rol=rol)
             if(obj):
-                #print(obj[0].user)
-                #print(obj[0].rol)
-                #print(obj[0].pk)
-                #print(request.user.is_authenticated)
                 if(rol=="A"):
                     return redirect("gestion")
 
@@ -42,6 +40,35 @@ def logout_view(request):
     return redirect("logon")
 
 def gestionAgregar(request):
+    if request.method=='POST':
+        nombre=request.POST['name']
+        contr0=request.POST['password0']
+        contr1=request.POST['password1']
+        cell=request.POST['phone']
+        rol=request.POST['rol']
+        userProfile0=None
+        if(contr0!=contr1):
+            return render(request,'gestion.html',{'info':'Las contrasenas no coinciden'})
+        if(rol=='Administrador'):
+            rol='A'
+        elif(rol=='Usuario'):
+            rol='U'
+        try:
+            name=User.objects.get(username=nombre)
+            if(name):
+                return render(request,'gestion.html',{'info':'El nombre de usuario ya existe'})
+        except:
+            try:
+                user0=User.objects.create(username=nombre,password=make_password(contr0))
+                user0.save()
+                if cell:
+                    userProfile0=UserProfile.objects.create(user=user0,rol=rol,phone=cell)
+                else:
+                    userProfile0=UserProfile.objects.create(user=user0,rol=rol)
+                userProfile0.save()
+            except:
+                return render(request,'gestion.html',{'info':'No se ha podido guardar el usuario'})
+        return render(request,'gestion.html',{'info':'Usuario guardado'}) 
     return render(request,'gestion.html')
 
 def gestionEliminar(request):
