@@ -2,12 +2,21 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from aerolinea.forms import NameForm
 from aerolinea.models import boletoAerolinea
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-
-
+@login_required
 def boletos(request):
-    return render(request,"boletos.html")
-
+    try:
+        #if request.user.is_authenticated:
+        print(request.user.is_authenticated)
+        print("in")
+        return render(request,"boletos.html")
+        #else:
+        #    print(request.user.is_authenticated)
+        #    return redirect('logon')
+    except Exception as exc:
+        print(str(exc))
+@login_required
 def calculo(request):
     try:
         if request.method=='POST':
@@ -77,15 +86,16 @@ def calculo(request):
             return render(request,'calculo.html',{'numero':"{:.2f}".format(subTotal),'descuento':"{:.2f}".format(desc),'total':"{:.2f}".format(total),'nombre':request.POST['nombre'],'clase':clss})
         else:
             return render(request,'calculo.html',{'numero':"--",'descuento':"--",'total':"--",'nombre':"--",'clase':"--"})
+    
     except Exception as exc:
         print(str(exc))
         return render(request,'calculo.html',{'numero':"--",'descuento':"--",'total':"--",'nombre':"--",'clase':"--"})
         
-
+@login_required
 def registro(request):
     obj=boletoAerolinea.objects.all()
     return render(request,'registro.html',{'boleto':obj})
-
+@login_required
 def reg_eliminar(request):
     if request.method=='POST':
         if(request.POST["reg"]):
@@ -95,7 +105,7 @@ def reg_eliminar(request):
             return render(request,'reg_eliminar.html',{'rg':obj})
     print("aqui")
     return render(request, 'reg_eliminar.html')
-
+@login_required
 def limpiar(request):
     if request.method=='POST':
         idd=request.POST["id"]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%load static%}
+        <link rel="stylesheet" href="{%static 'css/gestion.css'%}">
+
+    </head>
+
+        <body>
+            <div class="grid g0">
+                <div class="item i0">
+                    <h1>Gestion usuarios</h1>
+                </div>
+                <div class="item i1">
+                    <nav id=  "menu">
+                        <ul>
+                            <li><a>Menu</a>
+                            <ul>
+                                <li><a href="{%url 'gestion' %}">Pagina principal</a></li>
+                                <li><a href="{%url 'gesVer'%}">Ver usuarios</a></li>
+                                <li><a href="{%url  'gesEliminar'%}">Eliminar usuarios</a></li>
+                                <li><a href="{%url 'logout'%}">Logout</a></li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="item i2">
+                    <form action="{%url 'gestion' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="grid g1">
+                            <div class="item i00"><lable for="name">Nombre de usuario: </lable></div>
+                            <div class="item i01"><input type="text" name= "name" id="name" required></div>
+                            <div class="item i02"><lable for="password0">Contraseña: </lable></div>
+                            <div class="item i03"><input type="password" id="password0" name="password0"></div>
+                            <div class="item i04"><lable for="password1">Ingresar la contraseña nuevamente: </lable></div>
+                            <div class="item i05"><input type="password" id="password1" name="password1"></div>
+                            <div class="item i06"><lable for="phone">Celular: </lable></div>
+                            <div class="item i07"><input type="number" name= "phone" id="phone" width="8" ></div>
+                            <div class="item i08"><lable for="rol">Rol: </lable></div>
+                            <div class="item i09"><select id="rol" name ="rol"placeholder="Rol" required=""> 
+                                <option> </option>
+                                <option>Administrador</option>
+                                <option>Usuario</option>
+                            </select>
+                            </div>
+                            <div class="item i010"><input type ="submit"name="enviar" id= "enviar" value="Registrar"></div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+
+        </body>
+    
+</html>

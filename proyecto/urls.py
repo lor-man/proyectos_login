@@ -24,6 +24,9 @@ from aerolinea import views as aero
 
 urlpatterns = [
     path('', general.homepage, name = "homepage"),
+    path('gestion-usuario/',users.gestionAgregar,name="gestion"),
+    path('gestion-usuario/eliminar',users.gestionEliminar,name="gesEliminar"),
+    path('gestion-usuario/ver',users.gestionVer,name='gesVer'),
     path('admin/', admin.site.urls, name = "administration"),
     path('login/', users.logon, name = "logon"),
     path('logout/',users.logout_view,name="logout"),
